@@ -6,35 +6,44 @@ import { getWeb3 } from './utils';
 class App extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			web3: undefined,
+			account: "",
+		}
+	}
+
+	componentWillMount = async () => {
+		const web3 = await getWeb3();
+		console.log(web3);
 	}
 
 	render() {
 		return (
 			<div className="App">
-				<div class="container-fluid">
+				<div className="container-fluid">
 					<br />
 					<h1>Mon Token ERC20</h1>
 					<br />
 					<h2>Informations</h2>
-					<div class="row">
-						<div class="col-4">Mon account : </div>
-						<div class="col-8"><p id="account"></p></div>
+					<div className="row">
+						<div className="col-4">Mon account : </div>
+						<div className="col-8"><p id="account"></p></div>
 					</div>
-					<div class="row">
-						<div class="col-4">Nom du Token : </div>
-						<div class="col-8"><p id="name"></p></div>
+					<div className="row">
+						<div className="col-4">Nom du Token : </div>
+						<div className="col-8"><p id="name"></p></div>
 					</div>
-					<div class="row">
-						<div class="col-4">Symbole du Token : </div>
-						<div class="col-8"><p id="symbol"></p></div>
+					<div className="row">
+						<div className="col-4">Symbole du Token : </div>
+						<div className="col-8"><p id="symbol"></p></div>
 					</div>
-					<div class="row">
-						<div class="col-4">Décimal du Token : </div>
-						<div class="col-8"><p id="décimal"></p></div>
+					<div className="row">
+						<div className="col-4">Décimal du Token : </div>
+						<div className="col-8"><p id="décimal"></p></div>
 					</div>
-					<div class="row">
-						<div class="col-4">Totalsupply du Token : </div>
-						<div class="col-8"><p id="totalSupply"></p></div>
+					<div className="row">
+						<div className="col-4">Totalsupply du Token : </div>
+						<div className="col-8"><p id="totalSupply"></p></div>
 					</div>
 					<h3>Ma balance : <span id="balance">test</span> <span id="symbol2">this.state.symbol ...</span></h3>
 					<br />
